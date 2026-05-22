@@ -1,5 +1,6 @@
 project:
   type: website
+  output-dir: docs
 
 website:
   description: "The personal homepage of Evgeny D. Cruz"
