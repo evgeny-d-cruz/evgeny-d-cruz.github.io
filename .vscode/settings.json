@@ -1,0 +1,8 @@
+{
+  "python.defaultInterpreterPath": "./env/bin/python",
+  "python-envs.defaultEnvManager": "ms-python.python:conda",
+  "python-envs.defaultPackageManager": "ms-python.python:conda",
+
+  // This setting should be set manually under VS Code Settings
+  "python-envs.terminal.autoActivationType": "shellStartup",
+}

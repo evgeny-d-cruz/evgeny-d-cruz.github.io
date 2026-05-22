@@ -1,0 +1,51 @@
+---
+title: "My First Post"
+author: "Evgeny D. Cruz"
+date: "2026-05-21"
+# categories: []
+# image: "FILENAME"
+
+jupyter: sagemath
+---
+
+Hello! This is my first post. Welcome to my blog, *Left to the Reader*!
+
+This is a test post to check if the desired features of the site work as expected.
+
+## SageMath: Solve an equation
+
+```{sage}
+x = var('x')
+solve(240 - 758 * x + 907 * x**2 - 518 * x**3 + 148 * x**4 - 20 * x**5 + x**6, x)
+```
+
+## SageMath: Plot a function
+
+```{sage}
+t = var('t')
+parametric_plot((t, sin(t), cos(t)), (t, -2*pi, 2*pi), rgbcolor=hue(0.6))
+```
+
+## SageMath: Abstract Algebra
+```{sage}
+D12 = DihedralGroup(12)
+C12 = CyclicPermutationGroup(12)
+
+print("D12 is:", D12)
+print("C12 is:", C12, "\n")
+
+print("Is C12 normal in D12?", C12.is_normal(D12))
+print("The quotient D12 / C12 is:", D12.quotient(C12))
+```
+
+## Seaborn and Matplotlib: Create a scatterplot
+
+```{sage}
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+tips = sns.load_dataset("tips")
+
+sns.scatterplot(data = tips, x = "total_bill", y = "tip")
+plt.show()
+```

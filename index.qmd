@@ -1,0 +1,16 @@
+---
+title: "Home"
+about:
+  template: jolla
+  links:
+    - icon: github
+      text: GitHub
+      href: https://github.com/evgeny-d-cruz
+
+---
+
+## About this website
+
+Welcome to the personal homepage of Evgeny D. Cruz.
+
+More updates will be coming soon!
