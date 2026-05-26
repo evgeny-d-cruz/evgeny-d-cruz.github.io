@@ -6,6 +6,8 @@ date: "2026-05-21"
 # image: "FILENAME"
 
 jupyter: sagemath
+execute:
+    enabled: true
 ---
 
 Hello! This is my first post. Welcome to my blog, *Left to the Reader*!

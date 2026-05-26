@@ -43,7 +43,7 @@ jobs:
           conda info
           python --version
           which python
-          sage --version || true
+          sage --version
           quarto check
 
       - name: Register and check kernels
