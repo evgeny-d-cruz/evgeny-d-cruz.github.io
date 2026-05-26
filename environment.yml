@@ -9,4 +9,4 @@ dependencies:
   - seaborn
   - numpy
   - matplotlib
-prefix: env
+# prefix: env
