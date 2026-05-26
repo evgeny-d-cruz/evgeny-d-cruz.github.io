@@ -8,6 +8,7 @@ date: "2026-05-21"
 jupyter: sagemath
 execute:
     enabled: true
+    freeze: false
 ---
 
 Hello! This is my first post. Welcome to my blog, *Left to the Reader*!
