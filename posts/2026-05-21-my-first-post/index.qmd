@@ -5,7 +5,7 @@ date: "2026-05-21"
 # categories: []
 # image: "FILENAME"
 
-jupyter: sagemath
+jupyter: python3
 execute:
     enabled: true
     eval: true
@@ -18,20 +18,26 @@ This is a test post to check if the desired features of the site work as expecte
 
 ## SageMath: Solve an equation
 
-```{sage}
+```{python}
+from sage.all import *
+
 x = var('x')
 solve(240 - 758 * x + 907 * x**2 - 518 * x**3 + 148 * x**4 - 20 * x**5 + x**6, x)
 ```
 
 ## SageMath: Plot a function
 
-```{sage}
+```{python}
+from sage.all import *
+
 t = var('t')
 parametric_plot((t, sin(t), cos(t)), (t, -2*pi, 2*pi), rgbcolor=hue(0.6))
 ```
 
 ## SageMath: Abstract Algebra
-```{sage}
+```{python}
+from sage.all import *
+
 D12 = DihedralGroup(12)
 C12 = CyclicPermutationGroup(12)
 
@@ -44,7 +50,7 @@ print("The quotient D12 / C12 is:", D12.quotient(C12))
 
 ## Seaborn and Matplotlib: Create a scatterplot
 
-```{sage}
+```{python}
 import seaborn as sns
 import matplotlib.pyplot as plt
 
