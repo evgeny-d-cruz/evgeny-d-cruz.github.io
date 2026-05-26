@@ -27,7 +27,7 @@ solve(240 - 758 * x + 907 * x**2 - 518 * x**3 + 148 * x**4 - 20 * x**5 + x**6, x
 
 ## SageMath: Plot a function
 
-```{python}
+```{sage}
 from sage.all import *
 
 t = var('t')
