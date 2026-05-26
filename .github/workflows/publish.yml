@@ -44,7 +44,6 @@ jobs:
           python --version
           which python
           sage --version
-          quarto check
 
       - name: Register and check kernels
         run: |
@@ -56,6 +55,7 @@ jobs:
 
       - name: Render Quarto
         run: |
+          quarto check
           quarto render --execute
 
       - name: Upload Pages Artifact
