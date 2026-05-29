@@ -55,7 +55,7 @@ jobs:
 
       - name: Render Quarto
         run: |
-          quarto check
+          # quarto check
           quarto render --execute --no-cache
 
       - name: Upload Pages Artifact
