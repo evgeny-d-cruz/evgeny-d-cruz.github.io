@@ -47,8 +47,8 @@ jobs:
 
       - name: Register and check kernels
         run: |
-          pip install jupyter ipykernel
-          python -m ipykernel install --user --name sagemath --display-name "Python (sagemath)"
+          # pip install jupyter ipykernel
+          # python -m ipykernel install --user --name sagemath --display-name "Python (sagemath)"
           jupyter kernelspec list
 
       ########
