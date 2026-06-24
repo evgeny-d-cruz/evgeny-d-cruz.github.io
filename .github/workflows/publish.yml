@@ -1,68 +1,10 @@
+name: Quarto Publish (with Conda)
+
 on:
   workflow_dispatch:
   push:
     branches: main
 
-name: Quarto Publish
-
 jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        shell: bash -l {0}
-
-    permissions:
-      contents: write
-      id-token: write
-      pages: write
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-
-      ########
-
-      - name: Install Miniconda
-        uses: conda-incubator/setup-miniconda@v2
-        with:
-          auto-update-conda: true
-          environment-file: environment.yml
-          activate-environment: env
-      
-      - name: Verify Environment
-        run: |
-          conda info
-          python --version
-          which python
-          sage --version
-
-      - name: Register and check kernels
-        run: |
-          # pip install jupyter ipykernel
-          # python -m ipykernel install --user --name sagemath --display-name "Python (sagemath)"
-          jupyter kernelspec list
-
-      ########
-
-      - name: Render Quarto
-        run: |
-          # quarto check
-          quarto render --execute --no-cache
-
-      - name: Upload Pages Artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: docs/
-
-      - name: Publish to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+  call-workflow:
+    uses: evgeny-d-cruz/gh-workflows/.github/workflows/quarto-conda-publish.yml@main

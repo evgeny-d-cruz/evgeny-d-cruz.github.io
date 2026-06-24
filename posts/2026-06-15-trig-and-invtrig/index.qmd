@@ -1,0 +1,105 @@
+---
+title: "On the transcendental functions: The trigonometric and inverse trigonometric functions"
+author: "Evgeny D. Cruz"
+date: "2026-06-15"
+# categories: []
+# image: "FILENAME"
+
+jupyter: python3
+execute:
+    enabled: true
+    eval: true
+    freeze: false
+
+draft: true
+---
+
+In this post, we construct the trigonometric functions and their inverses.
+
+## Prelude: The natural logarithm and exponential function on $\mathbb{R}$
+
+The natural logarithm $\log : \mathbb{R}_{+} \to \mathbb{R}$ can be defined as 
+\begin{align*}
+    \log x := \int_{1}^{x} \frac{1}{t} \ dt,
+\end{align*}
+the (directed) area under the graph of $f(t) = \frac{1}{t}$ above $f(t) = 0$ from $t = 1$ to $t = x$.
+One can show that $\log$ is strictly increasing on $\mathbb{R}_{+}$ and surjective onto $\mathbb{R}$.
+
+As such, it must have an inverse, which we denote $\exp : \mathbb{R} \to \mathbb{R}_{+}$.
+This is the familiar exponential function.
+
+## The arctangent
+
+We begin our treatment of the trigonometric functions following Hardy.
+
+Let $m$ be an arbitrary real number, and consider the intersection of the line $y = mx$ with the
+circle $x^2 + y^2 = 1$ such that $x > 0$. Call this point $(x_m, y_m)$. As such, solving the system
+\begin{align*}
+    y_m &= mx_m \\
+    x_m^2 + y_m^2 &= 1 \\
+    x_m &> 0
+\end{align*}
+gives $(x_m, y_m) = \left( \frac{1}{\sqrt{1+m^2}}, \frac{m}{\sqrt{1+m^2}} \right)$.
+
+Now, consider the function $f_m : [0, 1] \to \mathbb{R}$ given by
+\begin{align*}
+    f_m(x) =
+    \begin{cases}
+        mx & \text{if } 0 \leq x < x_m \\
+        \sgn(m) \sqrt{1-x^2} & \text{if } x_m \leq x \leq 1.
+    \end{cases}
+\end{align*}
+
+One can check that $f_m$ is indeed defined and continuous on $[0, 1]$.
+As such, the Riemann integral
+\begin{align*}
+ a(m) := \int_{0}^{1} f_m (x) \ dx
+\end{align*}
+must exist.
+
+Now
+\begin{align*}
+ a(m) &= \int_{0}^{x_m} f_m (x) \ dx + \int_{x_m}^{1} f_m (x) \ dx \\
+ a(m) &= \int_{0}^{x_m} mx \ dx + \int_{x_m}^{1} \sgn(m) \sqrt{1-x^2} \ dx \\
+ a(m) &= \frac{m}{2(1+m^2)} + \sgn(m) \int_{x_m}^{1} \sqrt{1-x^2} \ dx.
+\end{align*}
+
+We would like to differentiate $a(m)$, however $\sgn(m)$ is not differentiable at $m = 0$.
+Nonetheless, we treat the cases $m \neq 0$ and $m = 0$ separately:
+
+* If $m \neq 0$, then
+\begin{align*}
+a'(m) &= \frac{1 - m^2}{2(1+m^2)^2} + \sgn(m) \left( -\sqrt{1 - x_m^2} \cdot \frac{d}{dm} x_m \right) \\
+&= \frac{1}{2(1+m^2)}.
+\end{align*}
+
+* If $m = 0$, then one can see that $a(0) = 0$, and
+\begin{align*}
+a'(0) &= \lim_{h \to 0} \frac{a(h) - a(0)}{h} \\
+&= \lim_{h \to 0} \frac{a(h) - 0}{h} \\
+&= \lim_{h \to 0} \frac{1}{h} \left[ \frac{h}{2(1+h^2)} + \sgn(h) \int_{x_h}^{1} \sqrt{1-h^2} \ dx \right]
+&= \frac{1}{2} \\
+&= \frac{1}{2(1+0^2)}.
+\end{align*}
+
+As such, for all real $m$,
+\begin{align*}
+a'(m) &= \frac{1}{2(1+m^2)} \\
+a(x) &= \int_{c}^{x} \frac{1}{2(1+m^2)} \ dm
+\end{align*}
+for some real $c$.
+
+However, $a(0) = 0$, which implies
+\begin{align*}
+\int_{c}^{0} \frac{1}{2(1+m^2)} \ dm = 0.
+\end{align*}
+This is true only when $c = 0$.
+
+Hence, for all real $x$,
+\begin{align*}
+a(x) &= \int_{0}^{x} \frac{1}{2(1+m^2)} \ dm.
+\end{align*}
+
+We call the function $a : \mathbb{R} \to \mathbb{R}$ the **arctangent function**.
+
+<!-- https://www.gutenberg.org/files/38769/38769-pdf.pdf -->
