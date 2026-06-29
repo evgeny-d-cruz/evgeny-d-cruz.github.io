@@ -10,6 +10,8 @@ website:
     left:
       - href: blog.qmd
         text: "Blog"
+      - href: https://evgeny-d-cruz.github.io/marginalia
+        text: "Notes"
 format:
   html:
     theme:
